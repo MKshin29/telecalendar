@@ -13,6 +13,8 @@ public class MyCalendarTelegramBot extends TelegramWebhookBot{
     private String botUserName;
     private String botToken;
 
+    
+
 
     public MyCalendarTelegramBot(DefaultBotOptions botOptions) {
         super(botOptions);
@@ -34,6 +36,20 @@ public class MyCalendarTelegramBot extends TelegramWebhookBot{
         return webHookPath;
     }
 
+//    @Override
+//    public BotApiMethod<?> onWebhookUpdateReceived(Update update) {
+//        if (update.getMessage() != null && update.getMessage().hasText()) {
+//            long chat_id = update.getMessage().getChatId();
+//
+//
+//            try {
+//                execute(new SendMessage(chat_id, "Hi " + update.getMessage().getText()));
+//            } catch (TelegramApiException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        return null;
+//    }
     @Override
     public BotApiMethod<?> onWebhookUpdateReceived(Update update) {
         if (update.getMessage() != null && update.getMessage().hasText()) {
@@ -46,7 +62,6 @@ public class MyCalendarTelegramBot extends TelegramWebhookBot{
                 e.printStackTrace();
             }
         }
-
         return null;
     }
 
